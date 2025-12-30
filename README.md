@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+<file_path>
+embed-preview\README.md
+</file_path>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<edit_description>
+Update README.md for the embed-preview package
+</edit_description>
 
-Currently, two official plugins are available:
+# embed-preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A React component library for previewing Discord messages with embeds, components, and more. Fully offline and easy to integrate.
 
-## React Compiler
+## Installation
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install embed-preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+or
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn add embed-preview
 ```
+
+## Usage
+
+```tsx
+import { MessagePreview, Message } from 'embed-preview';
+
+const message: Message = {
+  content: 'Hello, world!',
+  embeds: [
+    {
+      title: 'Example Embed',
+      description: 'This is an example embed.',
+      color: 0x00ff00,
+    },
+  ],
+  components: [],
+};
+
+function App() {
+  return <MessagePreview msg={message} />;
+}
+```
+
+## Props
+
+- `msg`: A `Message` object containing the message data.
+
+## Features
+
+- Preview Discord messages with text, embeds, and interactive components.
+- Supports buttons, select menus, and more.
+- Fully offline - no API calls required.
+- TypeScript support with full type definitions.
+
+## License
+
+MIT
