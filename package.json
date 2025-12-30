@@ -1,6 +1,6 @@
 {
     "name": "embed-preview",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A React component for previewing Discord messages with embeds and components",
     "main": "dist/embed-preview.umd.js",
     "module": "dist/embed-preview.es.js",
